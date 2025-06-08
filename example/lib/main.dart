@@ -23,7 +23,10 @@ class _FlutterContactsExampleState extends State<FlutterContactsExample> {
       setState(() => _permissionDenied = true);
     } else {
       final contacts = await FlutterContacts.getContacts();
-      setState(() => _contacts = contacts);
+      setState(() {
+        _contacts = contacts;
+        _permissionDenied = false;
+      });
     }
   }
 
